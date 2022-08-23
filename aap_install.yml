@@ -3,7 +3,7 @@
   hosts: localhost
   become: true
   vars_files:
-    - vars/inventory_vars.yml
+    - inventory_vars/variables.yml
   
   vars:
     aap_setup_down_offline_token: !vault |
