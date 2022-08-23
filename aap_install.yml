@@ -1,0 +1,19 @@
+---
+- name: Install Automation Controller
+  hosts: localhost
+  become: true
+  vars_files:
+    - vars/inventory_vars.yml
+  
+  vars:
+    aap_setup_working_dir: /var/tmp/
+    aap_setup_down_type: setup
+    aap_setup_inst_force: yes
+
+  collections:
+    - redhat_cop.aap_utilities
+
+  roles:
+    - redhat_cop.aap_utilities.aap_setup_download
+    - redhat_cop.aap_utilities.aap_setup_prepare
+    - redhat_cop.aap_utilities.aap_setup_install

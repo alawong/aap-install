@@ -1,0 +1,54 @@
+[controller]
+ansible-ctrl.example.com
+
+[controller:vars]
+peers=execution_nodes
+
+[execution_nodes]
+
+[automationhub]
+ansible-hub.example.com
+
+[database]
+database-01.example.com
+
+[servicescatalog_workers]
+
+[sso]
+
+[all:vars]
+ansible_become=true
+admin_password='{{ controller_admin_password }}"
+
+pg_host='database-01.example.com'
+pg_port='5432'
+
+pg_database='awx'
+pg_username='awx'
+pg_password='{{ pg_password }}'
+pg_sslmode='prefer'  # set to 'verify-full' for client-side enforced SSL
+
+registry_url='registry.redhat.io'
+registry_username='alawong'
+registry_password='{{ registry_password }}'
+
+# Receptor Configuration
+#
+receptor_listener_port=27199
+
+# Automation Hub Configuration
+#
+
+automationhub_admin_password='{{ ah_admin_password }}'
+
+automationhub_pg_host='database-01.example.com'
+automationhub_pg_port='5432'
+
+automationhub_pg_database='automationhub'
+automationhub_pg_username='automationhub'
+automationhub_pg_password='{{ ah_pg_password }}'
+automationhub_pg_sslmode='prefer'
+
+aap_setup_prep_inv_nodes={}
+
+sso_console_admin_password=''
