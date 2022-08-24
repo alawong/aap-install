@@ -48,7 +48,7 @@ aap_setup_prep_inv_vars:
           34633565336636386630643030363666393138393934363836653834376630666338373062656639
           3636353634346466660a643962376635313065343735373237353032383866636239316636396431
           6566
-    automationhub_pg_host: 'auto-hub.example.com'
+    automationhub_pg_host: 'ansible-hub.example.com'
     automationhub_pg_port: '5432'
 
     automationhub_pg_database: 'automationhub'
