@@ -13,8 +13,8 @@ aap_setup_prep_inv_nodes:
   #sso:
 
 aap_setup_prep_inv_vars:
-  automationcontroller:
-    peers: execution_nodes
+  # automationcontroller:
+  #   peers: execution_nodes
   all:
     ansible_become: true
     admin_password: !vault |
