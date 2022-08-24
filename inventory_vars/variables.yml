@@ -6,7 +6,7 @@ aap_setup_prep_inv_nodes:
   automationcontroller:
     - ansible-ctrl.example.com
   automationhub:
-    - auto-hub.example.com
+    - ansible-hub.example.com
   #database:
   #execution_nodes:
   #servicescatalog_workers:
