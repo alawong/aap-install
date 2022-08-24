@@ -1,13 +1,12 @@
 ---
 aap_setup_down_type: "setup-bundle"
 aap_setup_rhel_version: 8
-domain: "example.com"
 
 aap_setup_prep_inv_nodes:
   automationcontroller:
-    ansible-ctrl."{{ domain }}"
+    ansible-ctrl.example.com
   automationhub:
-    auto-hub."{{ domain }}"
+    auto-hub.example.com
   database:
   execution_nodes:
   servicescatalog_workers:
