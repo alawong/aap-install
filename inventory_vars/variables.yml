@@ -3,18 +3,14 @@ aap_setup_down_type: "setup-bundle"
 aap_setup_rhel_version: 8
 
 aap_setup_prep_inv_nodes:
-  automationcontroller:
-    - ansible-ctrl.example.com
-  automationhub:
-    - ansible-hub.example.com
-  #database:
+  automationcontroller: ansible-ctrl.example.com
+  automationhub: ansible-hub.example.com
+  database: database-01.example.com
   #execution_nodes:
   #servicescatalog_workers:
   #sso:
 
 aap_setup_prep_inv_vars:
-  # automationcontroller:
-  #   peers: execution_nodes
   all:
     ansible_become: true
     admin_password: !vault |
@@ -24,8 +20,8 @@ aap_setup_prep_inv_vars:
           34633565336636386630643030363666393138393934363836653834376630666338373062656639
           3636353634346466660a643962376635313065343735373237353032383866636239316636396431
           6566
-    pg_host: ''
-    pg_port: ''
+    pg_host: 'database-01.example.com'
+    pg_port: '5432'
 
     pg_database: 'awx'
     pg_username: 'awx'
@@ -61,7 +57,7 @@ aap_setup_prep_inv_vars:
           3636353634346466660a643962376635313065343735373237353032383866636239316636396431
           6566
     automationhub_pg_sslmode: 'prefer'
-    automationhub_main_url: 'https://ah.node'
+    automationhub_main_url: 'https://ansible-hub.example.com'
     automationhub_require_content_approval: False
     automationhub_enable_unauthenticated_collection_access: True
 
