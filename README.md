@@ -4,8 +4,8 @@ Repository containing playbooks and information required for a vanilla AAP2 inst
 
 ## Prerequirements
 
-. Minimum requirements for AAP2 install, including 1 control plane, 3 execution nodes, 1 database node, and 1 Automation Hub node
-. Bastion node with either redhat_cop.aap_utilities collection installed, or an execution environment with the collection installed
+* Minimum requirements for AAP2 install, including 1 control plane, 3 execution nodes, 1 database node, and 1 Automation Hub node
+* Bastion node with either redhat_cop.aap_utilities collection installed, or an execution environment with the collection installed
 
 ## Installation Guide
 
