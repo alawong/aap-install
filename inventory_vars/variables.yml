@@ -9,13 +9,12 @@ aap_setup_prep_inv_nodes:
     - ansible-hub.example.com
   database: 
     - database-01.example.com
-  #execution_nodes:
-  #servicescatalog_workers:
-  #sso:
 
 aap_setup_prep_inv_vars:
   all:
+    ansible_user: devops
     ansible_become: true
+    
     admin_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           38643036623466373964353137633838353262646266306564356333396335393066383565383032
@@ -23,6 +22,15 @@ aap_setup_prep_inv_vars:
           34633565336636386630643030363666393138393934363836653834376630666338373062656639
           3636353634346466660a643962376635313065343735373237353032383866636239316636396431
           6566
+    
+    automationhub_admin_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          38643036623466373964353137633838353262646266306564356333396335393066383565383032
+          6462313764386530333632636662646339393839666664380a313962653364396332616438613763
+          34633565336636386630643030363666393138393934363836653834376630666338373062656639
+          3636353634346466660a643962376635313065343735373237353032383866636239316636396431
+          6566
+
     pg_host: 'database-01.example.com'
     pg_port: '5432'
 
@@ -37,19 +45,8 @@ aap_setup_prep_inv_vars:
           6566
     pg_sslmode: 'prefer'  # set to 'verify-full' for client-side enforced SSL
 
-    registry_url: 'registry.redhat.io'
-    receptor_listener_port: 27199
-
-    automationhub_admin_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          38643036623466373964353137633838353262646266306564356333396335393066383565383032
-          6462313764386530333632636662646339393839666664380a313962653364396332616438613763
-          34633565336636386630643030363666393138393934363836653834376630666338373062656639
-          3636353634346466660a643962376635313065343735373237353032383866636239316636396431
-          6566
     automationhub_pg_host: 'database-01.example.com'
     automationhub_pg_port: '5432'
-
     automationhub_pg_database: 'automationhub'
     automationhub_pg_username: 'automationhub'
     automationhub_pg_password: !vault |
@@ -60,13 +57,16 @@ aap_setup_prep_inv_vars:
           3636353634346466660a643962376635313065343735373237353032383866636239316636396431
           6566
     automationhub_pg_sslmode: 'prefer'
+    
     automationhub_main_url: 'https://ansible-hub.example.com'
     automationhub_require_content_approval: False
     automationhub_enable_unauthenticated_collection_access: True
-
     automationhub_ssl_validate_certs: False
 
     sso_console_admin_password: ''
+
+    registry_url: 'registry.redhat.io'
+    receptor_listener_port: 27199
 
 aap_setup_prep_inv_secrets:
   all: 

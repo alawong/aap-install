@@ -19,7 +19,7 @@ Repository containing playbooks and information required for a vanilla AAP2 inst
 
 4. Fill the inventory_vars/variables.yml with the node information, including hostnames, ports, admin user passwords for Automation Controller and the Private Automation Hub, and the registry.redhat.io login details.
 
-5. Install AAP2 using aap_install.yml:
+5. Install AAP2 using the aap_install.yml playbook:
 
     `ansible-navigator run aap_install.yml --eei << EE name >> --vault-password-file=~/password.txt -m stdout --playbook-artifact-enable false -vvv`
 
