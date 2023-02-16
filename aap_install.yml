@@ -4,7 +4,7 @@
   become: true
   vars_files:
     - inventory_vars/variables.yml
-    - vars/installer_vars.yml
+    - vars/installation.yml
   roles:
     - redhat_cop.aap_utilities.aap_setup_download
     - redhat_cop.aap_utilities.aap_setup_prepare
